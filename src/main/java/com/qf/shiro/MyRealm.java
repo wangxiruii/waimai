@@ -1,7 +1,7 @@
-package com.qf.waimai.shiro;
+package com.qf.shiro;
 
-import com.qf.waimai.pojo.Users;
-import com.qf.waimai.service.UserService;
+import com.qf.pojo.Users;
+import com.qf.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

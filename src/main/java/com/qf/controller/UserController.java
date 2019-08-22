@@ -1,4 +1,4 @@
-package com.qf.waimai.controller;
+package com.qf.controller;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;

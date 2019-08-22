@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
         "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qf.waimai.mapper.UserMapper">
-    <resultMap id="userMap" type="com.qf.waimai.pojo.Users">
+<mapper namespace="com.qf.mapper.UserMapper">
+    <resultMap id="userMap" type="com.qf.pojo.Users">
       <!--  private int userId;//用户id
         private String userName;//用户名
         private String userPwd;//用户密码

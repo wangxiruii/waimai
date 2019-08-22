@@ -1,8 +1,8 @@
-package com.qf.waimai.service.impl;
+package com.qf.service.impl;
 
-import com.qf.waimai.mapper.UserMapper;
-import com.qf.waimai.pojo.Users;
-import com.qf.waimai.service.UserService;
+import com.qf.mapper.UserMapper;
+import com.qf.pojo.Users;
+import com.qf.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

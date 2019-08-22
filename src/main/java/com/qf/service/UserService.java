@@ -1,6 +1,6 @@
-package com.qf.waimai.service;
+package com.qf.service;
 
-import com.qf.waimai.pojo.Users;
+import com.qf.pojo.Users;
 
 /**
  * @Auther:
