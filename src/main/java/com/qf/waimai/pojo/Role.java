@@ -5,5 +5,5 @@ package com.qf.waimai.pojo;
  * @Date: 2019/8/22 16:14
  * @Description:
  */
-public class Role {
+public class Role  {
 }
