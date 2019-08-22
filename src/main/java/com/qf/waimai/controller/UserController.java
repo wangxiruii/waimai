@@ -19,9 +19,11 @@ public class UserController {
     public String showLoginForm(){
             return "login";
     }
+
     @RequestMapping(value = "/dengLogin",method = RequestMethod.POST)
     public String login(@RequestParam("userName") String userName,
                         @RequestParam("userPwd") String userPwd){
+        System.out.println(userName+"=="+userPwd);
         try {
             Subject subject= SecurityUtils.getSubject();
             UsernamePasswordToken token=new UsernamePasswordToken(userName,userPwd);
@@ -33,7 +35,7 @@ public class UserController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "main";
+        return "opop";
 
     }
     @RequestMapping("/main")

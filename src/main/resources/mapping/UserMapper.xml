@@ -12,14 +12,14 @@
         <id property="userId" column="userId"/>
         <result property="userName" column="userName"/>
         <result property="userPwd" column="userPwd"/>
-        <result property="uname" column="uname"/>
+        <result property="uname" column="unames"/>
         <result property="email" column="email"/>
     </resultMap>
     <sql id="user_col">
         userId,
         userName,
         userPwd,
-        uname,
+        unames,
         email
     </sql>
     <select id="findUserInfo" parameterType="string" resultMap="userMap">
@@ -28,6 +28,7 @@
         from
         users u
         where
-        u.userName=#{userName}
+        u.userName = #{userName}
     </select>
+
 </mapper>
