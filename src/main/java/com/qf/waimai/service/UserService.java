@@ -9,4 +9,5 @@ import com.qf.waimai.pojo.Users;
  */
 public interface UserService {
     public Users findUserInfo(String userName);
+    public int save(Users users);
 }

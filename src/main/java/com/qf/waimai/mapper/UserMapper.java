@@ -16,4 +16,5 @@ import org.apache.ibatis.annotations.Param;
 public interface UserMapper {
     /*根据登陆名查询用户*/
     public Users findUserInfo(@Param("userName") String userName);
+    public int save(Users users);
 }

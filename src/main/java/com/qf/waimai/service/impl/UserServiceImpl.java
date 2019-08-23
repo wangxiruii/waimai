@@ -21,4 +21,11 @@ public class UserServiceImpl implements UserService {
         Users users=userMapper.findUserInfo(userName);
         return users;
     }
+
+    @Override
+    public int save(Users users) {
+        int count=userMapper.save(users);
+        return count;
+    }
+
 }
