@@ -13,5 +13,5 @@ import java.io.Serializable;
 public class Bookmark implements Serializable {
     private int markId;
     private String markName;
-    //盘口看
+    //盘口看hjhjk
 }
