@@ -2,12 +2,29 @@ package com.qf.service;
 
 import com.qf.pojo.Users;
 
+import java.util.List;
+
 /**
  * @Auther:
  * @Date: 2019/8/21 20:20
  * @Description:
  */
 public interface UserService {
+    //根据用户名查询用户信息
     public Users findUserInfo(String userName);
+    //注册
     public int save(Users users);
+    //查找用户
+    public Users loadUser(Users users);
+    //查询所有用户
+    public List<Users> loadAll(int page,int rows);
+    //删除(批量)
+    public int delete(List<Integer> ids);
+    //修改
+    public int updetaUser(Users users);
+    //模糊查询
+    public List<Users> loadName(String userName);
+    //查询行数
+    public int caleMaxPage(int rows);
+
 }

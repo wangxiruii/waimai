@@ -32,7 +32,47 @@
     </select>
     <insert id="save" parameterType="users">
         insert into users values(default,#{userName},#{userPwd},#{unames},#{email})
-
     </insert>
+    <!--查询用户-->
+    <select id="loadUser" resultType="users" parameterType="users">
+        select * from users where userName=#{userName} and userPwd=#{userPwd}
+    </select>
+    <!--查询所有-->
+    <select id="loadAll" parameterType="users">
+        select * from users
+    </select>
+    <delete id="delete" parameterType="list">
+        delete from users where userId in
+        <foreach collection="list" open="(" close=")" separator="," item="ids">
+            #{ids}
+        </foreach>
+    </delete>
+    <update id="updetaUser" parameterType="map">
+        update users
+        <set>
+            <!--private String uname;//用户昵称
+        private String email;//用户邮箱-->
+            <if test="userName!=null">
+                userName = #{userName},
+            </if>
+            <if test="userPwd!=null">
+                userPwd = #{usePwd},
+            </if>
+            <if test="uname!=null">
+                unames= #{uname},
+            </if>
+            <if test="email!=null">
+                email= #{eamil}
+            </if>
+        </set>
+                where userId=#{userId}
+    </update>
+    <select id="loadName" resultType="users" parameterType="string">
+        select * from users where userName like concat('%',#{userName},'%')
+    </select>
+    <select id="getTotalCount" resultType="int">
+        select count(userId) from users
+    </select>
+
 
 </mapper>

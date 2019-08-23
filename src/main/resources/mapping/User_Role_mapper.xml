@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
+        "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.User_role_mapper">
+    <select id="loadByUid" parameterType="int" resultType="java.lang.Integer">
+        select rid from users_role_mapping where uid=#{userId}
+    </select>
+    <insert id="saveUr" parameterType="int">
+        insert into users_role_mapping values (#{uid},#{rid})
+    </insert>
+    <delete id="deleteG">
+        delete from users_role_mapping where uid in
+        <foreach collection="list" open="(" close=")" item="ids" separator=",">
+            #{ids}
+        </foreach>
+    </delete>
+    <select id="loadIn" parameterType="int">
+        select * from roles where roleId in (select rid from users_role_mapping where uid=#{userId})
+    </select>
+    <select id="loadOut" parameterType="int">
+        select * from roles where roleId not  in (select rid from users_role_mapping where uid=#{userId})
+    </select>
+
+    <!--
+        //注册用户关系
+    public int saveUr(int uId) ;
+    //根据用户Id查询用户角色关系
+    public List<Integer> loadByUid(int userId);
+    //删除关系
+    public int deleteG(@Param("uId") int uId, @Param("ids") List<Integer> ids);
+    //查询用户Id查询角色表
+    public List<Role> loadIn(int userId);
+    public List<Role> loadOut(int userId);
+    -->
+</mapper>
+
+
+
+
+
