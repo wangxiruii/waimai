@@ -9,4 +9,4 @@ spring:
     password: 123
 mybatis:
   mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.qf.waimai.pojo
+  type-aliases-package: com.qf.pojo

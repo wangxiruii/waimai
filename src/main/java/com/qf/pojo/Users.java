@@ -1,4 +1,4 @@
-package com.qf.waimai.pojo;
+package com.qf.pojo;
 
 import lombok.Data;
 

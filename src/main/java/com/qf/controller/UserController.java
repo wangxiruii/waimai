@@ -1,4 +1,4 @@
-package com.qf.waimai.controller;
+package com.qf.controller;
 
 import com.qf.waimai.pojo.Users;
 import com.qf.waimai.service.UserService;

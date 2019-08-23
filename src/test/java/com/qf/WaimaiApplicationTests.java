@@ -1,4 +1,4 @@
-package com.qf.waimai;
+package com.qf;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
-package com.qf.waimai.config;
+package com.qf.config;
 
-import com.qf.waimai.shiro.MyRealm;
+import com.qf.shiro.MyRealm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Qualifier;
