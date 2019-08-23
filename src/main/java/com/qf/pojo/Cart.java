@@ -14,4 +14,5 @@ public class Cart implements Serializable {
     private int cartId;
     private int count;
     private String state;
+    //啦啦啦
 }

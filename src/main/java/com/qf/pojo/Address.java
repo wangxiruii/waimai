@@ -13,4 +13,5 @@ import java.io.Serializable;
 public class Address implements Serializable {
     private int addressId;
     private String addressName;
+    //斤斤计较
 }
