@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
+        "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.GoodsMapper">
+    <!--
+        private int goodsId;
+    private String goodsName;
+    private double price;
+    private String sale;
+    private String typles;
+    private String info;
+    -->
+    <resultMap id="goodsMap" type="com.qf.pojo.Goods">
+        <id property="goodsId" column="goodsId"/>
+        <result property="goodsName" column="goodsName"/>
+        <result property="price" column="price"/>
+        <result property="sale" column="sale"/>
+        <result property="typles" column="typles"/>
+        <result property="info" column="info"/>
+    </resultMap>
+    <sql id="goods_col">
+         goodsId,
+         goodsName,
+         price,
+         sale,
+         typles,
+         info
+    </sql>
+    <!--
+        //查询所有的物品
+    public List<Goods> loadAllGoods();
+    //根据id查询单个物品
+    public Goods loadByGoods(int goodsId);
+    //增加物品
+    public int saveGoods(Goods goods);
+    //删除物品
+    public int deleteGoods(List<Integer> ids);
+    //修改物品
+    public int updateGoods(int goodsId);
+    //模糊查询
+    public List<Goods> loadName(String goodsName);
+    //查询行数
+    public int getTotalCount();
+    -->
+    <select id="loadAllGoods" resultMap="goodsMap" parameterType="list">
+        select
+        <include refid="goods_col"/>
+        from
+        goods
+
+    </select>
+    <select id="loadByGoods" parameterType="int">
+        select
+        <include refid="goods_col"/>
+        from
+        goods
+        where
+        goodsId=
+        #{goodsId}
+    </select>
+    <insert id="saveGoods" parameterType="goods">
+        insert into goods values(default,#{goodsName}, #{price},#{sale},#{typles},#{info})
+    </insert>
+    <delete id="deleteGoods" parameterType="list">
+        delete from goods where goodsId in
+        <foreach collection="list" open="(" close=")" item="ids" separator=",">
+            #{ids}
+        </foreach>
+    </delete>
+    <update id="updateGoods" parameterType="int">
+        update goods
+        <set>
+            <if test="goodsName!=null">
+                goodsName=#{goodName}
+            </if>
+            <if test="price!=null">
+                price=#{price}
+            </if>
+            <if test="sale!=null">
+                sale=#{sale}
+            </if>
+            <if test="typles!=null">
+                typles=#{typles}
+            </if>
+            <if test="info!=null">
+                info=#{info}
+            </if>
+        </set>
+        where goodsId=#{goodsId}
+    </update>
+    <select id="loadName" parameterType="string" resultType="goods">
+        select
+        <include refid="goods_col"/>
+        from
+        goods
+        where
+        goodsName
+        like
+        concat('%',#{goodsName},'%')
+    </select>
+    <select id="getTotalCount" resultType="int">
+        select count(goodsId) from goods
+    </select>
+</mapper>
