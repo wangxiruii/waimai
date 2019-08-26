@@ -73,6 +73,12 @@
     <select id="getTotalCount" resultType="int">
         select count(userId) from users
     </select>
+    <!--
+        //根据Id查询用户
+    public Users loadById(int userId);-->
+    <select id="loadById" resultType="user" parameterType="int">
+        select * from users where userId=#{userId}
+    </select>
 
 
 </mapper>

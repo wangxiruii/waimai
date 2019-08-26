@@ -22,6 +22,10 @@ public interface RoleMapper {
     public int deleteRole(List<Integer> ids);
     //改角色
     public int updateRole(Role role);
+    //根据角色名查询角色ID
+    public int loadByRoleName(String roleName);
+    //查询行数
+    public int getTolalcount();
 
 
 

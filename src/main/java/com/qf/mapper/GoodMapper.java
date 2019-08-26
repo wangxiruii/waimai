@@ -11,7 +11,7 @@ import java.util.List;
  * @Description:
  */
 @Mapper
-public interface goodMapper {
+public interface GoodMapper {
     /**
      * @return 返回值为商品的一个总集合
      * 查询所有商品向展示页传达数据

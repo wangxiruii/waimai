@@ -9,9 +9,12 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * @Auther:
@@ -61,10 +64,12 @@ public class UserController {
     }*/
    //注册
    @RequestMapping("/save")
-    public String save(Users users){
+    public String save(Users users,String roleName){
         int count=userService.save(users);
         Users u=userService.loadUser(users);
-        int count1= user_role_service.saveUr(users.getUserId());
+
+
+        int count1= user_role_service.saveUr(users.getUserId(),roleService.loadByRoleName(roleName));
         if (count>1){
             if (count1>1){
                 return "login";
@@ -74,4 +79,49 @@ public class UserController {
         return "error";
 
    }
+   //用户
+   @RequestMapping("/loadAll")
+    public String loadAll(@RequestParam(required = false,defaultValue = "1") int page,
+                          @RequestParam(required = false, defaultValue = "4") int rows, Model model){
+       int maxPage=userService.caleMaxPage(rows);
+       if (page<1){
+           page=maxPage;
+       }
+       if (page>maxPage){
+           page=1;
+       }
+       List<Users> usersList=userService.loadAll(page,rows);
+       model.addAttribute("userList",usersList);
+       model.addAttribute("page",page);
+       model.addAttribute("maxpage",maxPage);
+       return "user";
+   }
+   @RequestMapping("delete")
+    public String delete(@RequestParam("ids") List<Integer> ids){
+
+       List<Integer> rid=user_role_service.loadByUid(ids);
+       int count=user_role_service.deleteG(ids,rid);
+       int c=userService.delete(ids);
+       return c>0?"redirect:loadAll":"error";
+   }
+       //根据Id查询用户
+   @RequestMapping("loadById")
+    public String loadById(int userId,Model model){
+       Users users=userService.loadById(userId);
+       model.addAttribute("users",users);
+       return "edit";
+   }
+   @RequestMapping("update")
+    public String update(Users users){
+       int count=userService.updetaUser(users);
+
+       return count>0?"redirect:loadAll":"error";
+   }
+   @RequestMapping("loadName")
+    public String loadBySearch(String userName,Model model){
+       List<Users> usersList=userService.loadName(userName);
+       model.addAttribute("userlist",usersList);
+       return "user";
+   }
+
 }

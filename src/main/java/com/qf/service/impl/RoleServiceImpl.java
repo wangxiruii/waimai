@@ -1,5 +1,6 @@
 package com.qf.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.qf.mapper.RoleMapper;
 import com.qf.pojo.Role;
 import com.qf.service.RoleService;
@@ -18,7 +19,8 @@ public class RoleServiceImpl implements RoleService{
     @Resource
     RoleMapper roleMapper;
     @Override
-    public List<Role> findAll() {
+    public List<Role> findAll(int page,int rows) {
+        PageHelper.startPage(page,rows);
         return roleMapper.findAll();
     }
 
@@ -41,4 +43,18 @@ public class RoleServiceImpl implements RoleService{
     public int updateRole(Role role) {
         return roleMapper.updateRole(role);
     }
+
+    @Override
+    public int loadByRoleName(String roleName) {
+        return roleMapper.loadByRoleName(roleName);
+    }
+
+    @Override
+    public int calcMaxpage(int rows) {
+        int count=roleMapper.getTolalcount();
+        return count%rows==0?count/rows:count/rows+1;
+
+    }
+
+
 }

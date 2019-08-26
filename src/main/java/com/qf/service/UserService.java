@@ -26,5 +26,7 @@ public interface UserService {
     public List<Users> loadName(String userName);
     //查询行数
     public int caleMaxPage(int rows);
+    //根据Id查询用户
+    public Users loadById(int userId);
 
 }

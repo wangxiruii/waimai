@@ -19,18 +19,18 @@ public class User_Role_ServiceImpl implements User_Role_Service {
     User_role_mapper user_role_mapper;
 
     @Override
-    public int saveUr(int uId) {
-        return user_role_mapper.saveUr(uId);
+    public int saveUr(int uid,int rid) {
+        return user_role_mapper.saveUr(uid,rid);
     }
 
     @Override
-    public List<Integer> loadByUid(int userId) {
+    public List<Integer> loadByUid(List<Integer> userId) {
         return user_role_mapper.loadByUid(userId);
     }
 
     @Override
-    public int deleteG(int uId, List<Integer> ids) {
-        return user_role_mapper.deleteG(uId,ids);
+    public int deleteG(List<Integer> uid, List<Integer> ids) {
+        return user_role_mapper.deleteG(uid,ids);
     }
 
     @Override
@@ -42,4 +42,5 @@ public class User_Role_ServiceImpl implements User_Role_Service {
     public List<Role> loadOut(int userId) {
         return user_role_mapper.loadOut(userId);
     }
+
 }

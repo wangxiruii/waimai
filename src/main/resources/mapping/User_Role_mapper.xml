@@ -3,14 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
         "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qf.mapper.User_role_mapper">
-    <select id="loadByUid" parameterType="int" resultType="java.lang.Integer">
-        select rid from users_role_mapping where uid=#{userId}
+    <select id="loadByUid"  resultType="map">
+        select rid from user_role_mapping where uid in
+        <foreach collection="list" item="userId" separator="," open="("  close=")">
+            #{userId}
+        </foreach>
     </select>
     <insert id="saveUr" parameterType="int">
         insert into users_role_mapping values (#{uid},#{rid})
     </insert>
     <delete id="deleteG">
-        delete from users_role_mapping where uid in
+        delete from users_role_mapping where uid =#{uid} and rid in
         <foreach collection="list" open="(" close=")" item="ids" separator=",">
             #{ids}
         </foreach>
@@ -21,7 +24,12 @@
     <select id="loadOut" parameterType="int">
         select * from roles where roleId not  in (select rid from users_role_mapping where uid=#{userId})
     </select>
-
+    <select id="deletOp" resultType="map">
+        select rid from user_role_mapping where uid in
+        <foreach collection="list" item="userIds" open="(" separator=","  close=")">
+            #{userIds}
+        </foreach>
+    </select>
     <!--
         //注册用户关系
     public int saveUr(int uId) ;

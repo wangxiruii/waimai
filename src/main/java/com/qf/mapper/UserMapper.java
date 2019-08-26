@@ -32,6 +32,8 @@ public interface UserMapper {
     public List<Users> loadName(String userName);
     //查询行数
     public int getTotalCount();
+    //根据Id查询用户
+    public Users loadById(int userId);
 
 
 }
