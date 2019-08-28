@@ -36,21 +36,22 @@ public class GoodServiceImpl implements GoodService {
 
     @Override
     public int deleteGoods(List<Integer> ids) {
-        return 0;
+        return goodsMapper.deleteGoods(ids);
     }
 
     @Override
-    public int updateGoods(int goodsId) {
-        return 0;
+    public int updateGoods(Goods goods) {
+        return goodsMapper.updateGoods(goods);
     }
 
     @Override
     public List<Goods> loadName(String goodsName) {
-        return null;
+        return goodsMapper.loadName(goodsName);
     }
 
     @Override
     public int caleMaxPage(int rows) {
-        return 0;
+        int count=goodsMapper.getTotalCount();
+        return count%rows==0?count/rows:count/rows+1;
     }
 }

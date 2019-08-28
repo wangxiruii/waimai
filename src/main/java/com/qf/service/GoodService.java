@@ -20,7 +20,7 @@ public interface GoodService {
     //删除物品
     public int deleteGoods(List<Integer> ids);
     //修改物品
-    public int updateGoods(int goodsId);
+    public int updateGoods(Goods goods);
     //模糊查询
     public List<Goods> loadName(String goodsName);
     //查询行数

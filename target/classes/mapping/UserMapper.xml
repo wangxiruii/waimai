@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <!DOCTYPE mapper
+            PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
+            "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.UserMapper">
+    <resultMap id="userMap" type="com.qf.pojo.Users">
+      <!--  private int userId;//用户id
+        private String userName;//用户名
+        private String userPwd;//用户密码
+        private String uname;//用户昵称
+        private String email;//用户邮箱-->
+        <id property="userId" column="userId"/>
+        <result property="userName" column="userName"/>
+        <result property="userPwd" column="userPwd"/>
+        <result property="uname" column="unames"/>
+        <result property="email" column="email"/>
+    </resultMap>
+    <sql id="user_col">
+        userId,
+        userName,
+        userPwd,
+        unames,
+        email
+    </sql>
+    <select id="findUserInfo" parameterType="string" resultMap="userMap">
+        select
+        <include refid="user_col"/>
+        from
+        users u
+        where
+        u.userName = #{userName}
+    </select>
+    <insert id="save" parameterType="users">
+        insert into users values(default,#{userName},#{userPwd},#{unames},#{email})
+    </insert>
+    <!--查询用户-->
+    <select id="loadUser" resultType="users" parameterType="users">
+        select * from users where userName=#{userName} and userPwd=#{userPwd}
+    </select>
+    <!--查询所有-->
+    <select id="loadAll" parameterType="users">
+        select * from users
+    </select>
+    <delete id="delete" parameterType="list">
+        delete from users where userId in
+        <foreach collection="list" open="(" close=")" separator="," item="ids">
+            #{ids}
+        </foreach>
+    </delete>
+    <update id="updetaUser" parameterType="map">
+        update users
+        <set>
+            <!--private String uname;//用户昵称
+        private String email;//用户邮箱-->
+            <if test="userName!=null">
+                userName = #{userName},
+            </if>
+            <if test="userPwd!=null">
+                userPwd = #{usePwd},
+            </if>
+            <if test="uname!=null">
+                unames= #{uname},
+            </if>
+            <if test="email!=null">
+                email= #{eamil}
+            </if>
+        </set>
+                where userId=#{userId}
+    </update>
+    <select id="loadName" resultType="users" parameterType="string">
+        select * from users where userName like concat('%',#{userName},'%')
+    </select>
+    <select id="getTotalCount" resultType="int">
+        select count(userId) from users
+    </select>
+    <!--
+        //根据Id查询用户
+    public Users loadById(int userId);-->
+    <select id="loadById" resultType="users" parameterType="int">
+        select * from users where userId=#{userId}
+    </select>
+
+
+</mapper>
