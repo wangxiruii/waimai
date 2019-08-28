@@ -1,4 +1,4 @@
-package com.qf.waimai.mapper;
+package com.qf.mapper;
 
 import com.qf.pojo.Users;
 import org.apache.ibatis.annotations.Mapper;

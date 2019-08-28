@@ -16,7 +16,7 @@
     <select id="loadAll" resultType="permission">
         select * from permisson
     </select>
-    <select id="loadByRoleId" resultType="permisswion" parameterType="int">
+    <select id="loadByRoleId" resultType="permission" parameterType="int">
         select * from permission where perid in(select pid from role_ permission_mapping where rid=#{roleId})
 
     </select>

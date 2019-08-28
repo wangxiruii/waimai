@@ -1,4 +1,4 @@
-    <?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
     <!DOCTYPE mapper
             PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
             "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
@@ -76,7 +76,7 @@
     <!--
         //根据Id查询用户
     public Users loadById(int userId);-->
-    <select id="loadById" resultType="user" parameterType="int">
+    <select id="loadById" resultType="users" parameterType="int">
         select * from users where userId=#{userId}
     </select>
 

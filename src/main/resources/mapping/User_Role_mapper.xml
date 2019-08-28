@@ -24,12 +24,12 @@
     <select id="loadOut" parameterType="int">
         select * from roles where roleId not  in (select rid from users_role_mapping where uid=#{userId})
     </select>
-    <select id="deletOp" resultType="map">
+<!--    <select id="deleteG" >
         select rid from user_role_mapping where uid in
         <foreach collection="list" item="userIds" open="(" separator=","  close=")">
             #{userIds}
         </foreach>
-    </select>
+    </select>-->
     <!--
         //注册用户关系
     public int saveUr(int uId) ;

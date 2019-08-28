@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     @Resource
-    private com.qf.waimai.mapper.UserMapper userMapper;
+    private com.qf.mapper.UserMapper userMapper;
     @Override
     public Users findUserInfo(String userName) {
         Users users=userMapper.findUserInfo(userName);

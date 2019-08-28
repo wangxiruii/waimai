@@ -3,23 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
         "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qf.mapper.RoleMapper">
-    <!--
-     //查询所有角色
-    public List<Role> findAll();
-    //根据Id查角色
-    public Role loadByRoleId(int RoleId);
-    //增加角色
-    public int saveRole(Role role);
-    //删角色
-    public int deleteRole(List<Integer> ids);
-    //改角色
-    public int updateRole(Role role);
-    //根据角色名查询角色ID
-    public int loadByRoleName(String roleName);
-
-     roleId;
-    private String roleName
-    -->
    <resultMap id="roleMap" type="com.qf.pojo.Role">
        <id property="roleId" column="roleId"></id>
        <result property="roleName" column="roleName"></result>
@@ -52,10 +35,7 @@
         select roleId from roles where roleName=#{roleName}
 
     </select>
-    <!--
-        //查询行数
-    public int getTolalcount();
-    -->
+
     <select id="getTolalcount" resultType="int">
         select count(roleId) from roles
     </select>
