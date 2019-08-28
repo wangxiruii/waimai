@@ -1,6 +1,7 @@
 package com.qf.mapper;
 
 import com.qf.pojo.Goods;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @Date: 2019/8/26 20:37
  * @Description:
  */
+@Mapper
 public interface GoodsMapper {
     /*
     private int goodsId;
