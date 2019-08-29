@@ -62,7 +62,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            	<tr class="gradeX" th:each="u:${usersList}">
+                            	<tr th:each="u:${usersList}">
                                     <td><span th:text="${u.userName}"></span></td>
                                     <td th:text="${u.nickName}"></td>
                                     <td th:text="${u.email}"></td>
