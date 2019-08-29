@@ -29,14 +29,8 @@ public class UserController {
     RoleService roleService;
     @Autowired
     User_Role_Service user_role_service;
-
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String showLoginForm(){
-            return "login";
-    }
-
     //登陆
-    @RequestMapping(value = "/dengLogin",method = RequestMethod.POST)
+    @RequestMapping("/dengLogin")
     public String login(@RequestParam("userName") String userName,
                         @RequestParam("userPwd") String userPwd){
         System.out.println(userName+"=="+userPwd);
@@ -52,7 +46,6 @@ public class UserController {
             e.printStackTrace();
         }
         return "opop";
-
     }
     @RequestMapping("/main")
     public String showMain(){
@@ -63,12 +56,10 @@ public class UserController {
         return "error";
     }*/
    //注册
-   @RequestMapping("/save")
+  /* @RequestMapping("save")
     public String save(Users users,String roleName){
         int count=userService.save(users);
         Users u=userService.loadUser(users);
-
-
         int count1= user_role_service.saveUr(users.getUserId(),roleService.loadByRoleName(roleName));
         if (count>1){
             if (count1>1){
@@ -77,7 +68,15 @@ public class UserController {
             return "error";
         }
         return "error";
-
+   }*/
+  //管理员添加用户
+   @RequestMapping("saveuser")
+   public String save(Users users){
+       if (users.getUserName().equals("") || users.getUserPwd().equals("")){
+           return "error";
+       }
+       int count=userService.save(users);
+     return count>1?"main":"error";
    }
    //用户
    @RequestMapping("/loadAll")
@@ -91,10 +90,18 @@ public class UserController {
            page=1;
        }
        List<Users> usersList=userService.loadAll(page,rows);
+       System.out.println(usersList);
        model.addAttribute("userList",usersList);
        model.addAttribute("page",page);
        model.addAttribute("maxpage",maxPage);
-       return "user";
+       return "userList";
+   }
+   //用户列表数据表述
+   @RequestMapping("findAllUser")
+   public String findAllUser (Model model){
+       List<Users> users=userService.findAllUser();
+       model.addAttribute("users",users);
+       return "userList";
    }
    @RequestMapping("delete")
     public String delete(@RequestParam("ids") List<Integer> ids){
@@ -114,7 +121,6 @@ public class UserController {
    @RequestMapping("update")
     public String update(Users users){
        int count=userService.updetaUser(users);
-
        return count>0?"redirect:loadAll":"error";
    }
    @RequestMapping("loadName")

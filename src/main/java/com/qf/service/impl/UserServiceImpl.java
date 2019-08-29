@@ -67,5 +67,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.loadById(userId);
     }
 
+    @Override
+    public List<Users> findAllUser() {
+        return userMapper.findAllUser();
+    }
+
 
 }

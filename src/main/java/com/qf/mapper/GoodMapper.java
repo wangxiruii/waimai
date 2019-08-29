@@ -17,7 +17,6 @@ public interface GoodMapper {
      * 查询所有商品向展示页传达数据
      */
     public List<Goods> findAll();
-
     /**
      * @return 返回一个对应类型的一个总集
      * 在用户按照商品类型浏览时展示数据

@@ -1,7 +1,5 @@
 package com.qf.pojo;
-
 import lombok.Data;
-
 import java.io.Serializable;
 
 /**

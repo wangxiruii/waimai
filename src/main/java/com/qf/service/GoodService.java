@@ -5,5 +5,5 @@ package com.qf.service;
  * @Date: 2019/8/22 21:39
  * @Description:
  */
-public class GoodService {
+public interface GoodService {
 }

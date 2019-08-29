@@ -1,0 +1,159 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> - 基本表单</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/custom.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<!-- Sweet Alert -->
+		<link href="css/sweetalert.css" rel="stylesheet">
+		<style type="text/css">
+			.note-editable {
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body class="gray-bg">
+		<script src="js/jquery-1.7.2.min_1.js"></script>
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>添加加盟店</h5>
+						</div>
+						<div class="ibox-content">
+							<form class="form-horizontal" action="admin_admin_save.action" method="post" id="form">
+								<div class="form-group">
+									<input type="hidden" name="admin.id" id="guanliyuanid" value="">
+									<label class="col-sm-3 control-label"></label>
+									<div class="col-sm-8" style="color: red;font-size: 15px">
+
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span style="color:red;">*</span>加盟店名称：</label>
+									<div class="col-sm-8">
+										<input id="username" name="admin.user" value="" placeholder=" 请输入加盟店名称" type="text" class="form-control">
+										<span class="help-block m-b-none"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span style="color:red;">*</span>联系电话：</label>
+									<div class="col-sm-8">
+										<input name="admin.password" id="password" placeholder=" 请输入要使用的联系电话" type="password" class="form-control">
+										<span class="help-block m-b-none"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span style="color:red;">*</span>地址：</label>
+									<div class="col-sm-8">
+										<style type="text/css">
+											body {
+												background: #EEEEEE;
+												margin: 0;
+												padding: 0;
+												font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+											}
+											
+											a {
+												color: #006600;
+												text-decoration: none;
+											}
+											
+											a:hover {
+												color: #990000;
+											}
+											
+											.top {
+												margin: 5px auto;
+												color: #990000;
+												text-align: center;
+											}
+											
+											.info select {
+												border: 1px #993300 solid;
+												background: #FFFFFF;
+											}
+											
+											.info {
+												margin: 5px;
+												 
+											}
+											
+											.info #show {
+												color: #3399FF;
+											}
+											
+											.bottom {
+												text-align: right;
+												font-size: 12px;
+												color: #CCCCCC;
+												width: 1000px;
+											}
+										</style>
+										<div class="info">
+											<div>
+												<select id="s_province" name="s_province"></select>&nbsp;&nbsp;
+												<select id="s_city" name="s_city"></select>&nbsp;&nbsp;
+												<select id="s_county" name="s_county"></select>
+												<script class="resources library" src="js/area.js" type="text/javascript"></script>
+
+												<script type="text/javascript">
+													_init_area();
+												</script>
+											</div>
+											<div id="show"></div>
+										</div>
+										<script type="text/javascript">
+											var Gid = document.getElementById;
+											var showArea = function() {
+												Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+													Gid('s_city').value + " - 县/区" +
+													Gid('s_county').value + "</h3>"
+											}
+											Gid('s_county').setAttribute('onchange', 'showArea()');
+										</script>
+										<span class="help-block m-b-none"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span style="color:red;">*</span>邮箱：</label>
+									<div class="col-sm-8">
+										<input id="confirm_password" placeholder=" 请输入邮箱" class="form-control" type="password">
+										<span class="help-block m-b-none"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span style="color:red;">*</span>公司详情：</label>
+									<div class="col-sm-8">
+										<input id="confirm_password" placeholder=" 请输入公司详情" class="form-control" type="password">
+										<span class="help-block m-b-none"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-8">
+										<button id="submit" class="btn btn-sm btn-info" type="submit">确认保存</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

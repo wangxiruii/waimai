@@ -28,5 +28,6 @@ public interface UserService {
     public int caleMaxPage(int rows);
     //根据Id查询用户
     public Users loadById(int userId);
-
+    //用户列表查询
+    public List<Users> findAllUser();
 }
