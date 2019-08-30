@@ -14,6 +14,10 @@ public class ViewController {
     public String showLoginForm(){
         return "login";
     }
+    @RequestMapping("/loginView")
+    public String showLogin(){
+        return "login";
+    }
 
     @RequestMapping("viewaddmin")
     public String viewaddmin(){
@@ -133,6 +137,10 @@ public class ViewController {
     @RequestMapping("viewwelcome")
     public String viewWelcome(){
         return "welcome";
+    }
+    @RequestMapping("viewReg")
+    public String viewReg(){
+        return "register";
     }
 
     @RequestMapping("viewalipay")

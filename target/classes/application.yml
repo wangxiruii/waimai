@@ -10,3 +10,30 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.qf.pojo
+#mail:
+#  default-encoding: utf-8
+#  host: smtp.qq.com
+#  username: 714338547@qq.com
+#  password: gbubjivndekzbffj
+#properties:
+#    mail:
+#      smtp:
+#        auth: true
+#        starttls:
+#          enable: true
+#          required: true
+mail:
+  default-encoding: utf-8
+  host: smtp.qq.com
+  username: 714338547@qq.com
+  password: gbubjivndekzbffj
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+          required: true
+
+
+

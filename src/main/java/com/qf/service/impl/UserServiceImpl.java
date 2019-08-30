@@ -1,8 +1,13 @@
 package com.qf.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.qf.mapper.UserMapper;
 import com.qf.pojo.Users;
 import com.qf.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,7 +21,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     @Resource
-    private com.qf.mapper.UserMapper userMapper;
+     UserMapper userMapper;
+/*
+    JavaMailSender javaMailSender;
+    @Value("${spring.mail.username}")
+    private String from;*/
+
     @Override
     public Users findUserInfo(String userName) {
         Users users=userMapper.findUserInfo(userName);
@@ -70,6 +80,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Users> findAllUser() {
         return userMapper.findAllUser();
+    }
+
+    @Override
+    public void sendSimpleMail(String to, String title, String content) {
+        //创建要发送的邮件
+
+
     }
 
 

@@ -30,4 +30,6 @@ public interface UserService {
     public Users loadById(int userId);
     //用户列表查询
     public List<Users> findAllUser();
+    //
+    public void sendSimpleMail(String to, String title, String content);
 }

@@ -71,7 +71,7 @@
                 nickName= #{nickName},
             </if>
             <if test="email!=null">
-                email= #{eamil}
+                email= #{email}
             </if>
             <if test="tel!=null">
                 tel= #{tel}

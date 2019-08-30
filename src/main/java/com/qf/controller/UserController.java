@@ -4,17 +4,26 @@ import com.qf.pojo.Users;
 import com.qf.service.RoleService;
 import com.qf.service.UserService;
 import com.qf.service.User_Role_Service;
+import com.qf.service.impl.UserServiceImpl;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @Auther:
@@ -29,6 +38,11 @@ public class UserController {
     RoleService roleService;
     @Autowired
     User_Role_Service user_role_service;
+    //
+
+   /*
+    @Resource
+    JavaMailSender javaMailSender;*/
     //登陆
     @RequestMapping("/dengLogin")
     public String login(@RequestParam("userName") String userName,
@@ -78,7 +92,19 @@ public class UserController {
        int count=userService.save(users);
      return count>1?"main":"error";
    }
-   //用户
+   //注册
+   @RequestMapping("reg")
+   public String reg(Users users){
+
+       if (users.getUserName().equals("") || users.getUserPwd().equals("")){
+           return "error";
+       }
+
+       int count=userService.save(users);
+
+       return count>0?"redirect:loginView":"error";
+   }
+   // 用户
    @RequestMapping("/loadAll")
     public String loadAll(@RequestParam(required = false,defaultValue = "1") int page,
                           @RequestParam(required = false, defaultValue = "4") int rows, Model model){
@@ -129,5 +155,49 @@ public class UserController {
        model.addAttribute("userlist",usersList);
        return "user";
    }
+    @RequestMapping("getCheckCode")
+    @ResponseBody
+    public String getCheckCode(String email) throws EmailException {
+
+        String checkcode = String.valueOf(new Random().nextInt(899999) + 100000);
+        String message="您正在注册千峰外卖邮箱，验证码为:"+checkcode+"。感谢您对千峰的信任!请妥善保管该验证码!";
+        try {
+            userService.sendSimpleMail(email,"千峰外卖注册验证码",message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return checkcode;
+    }
+    @ResponseBody
+    @RequestMapping("/emil")
+    public String eMail(String mail, HttpServletRequest request)throws EmailException{
+
+       /* Users users=(Users)request.getSession().getAttribute("user");
+        String usereName=users.getUserName();*/
+        HtmlEmail el=new HtmlEmail();    //创建一个HtmlEmail 实例
+        el.setHostName("smtp.qq.com");   //邮箱的SMTP服务器
+        el.setCharset("utf-8");   //设置发送的字符类型
+        el.addTo(mail);    //对方
+        el.setFrom("714338547@qq.com","千峰外卖");  //从哪发
+        el.setAuthentication("714338547@qq.com","gbubjivndekzbffj");  //设置发送的邮箱  和授权码
+        el.setSubject("千峰外卖---验证码");
+        String yan = String.valueOf(new Random().nextInt(899999) + 100000);
+        request.getSession().setAttribute("cc",yan);
+        el.setMsg("【千峰外卖】验证码:"+"("+yan+")"+"请勿转发,转发可能导致账号被盗。感谢您对千峰的信任!请妥善保管该验证码!");
+        el.send();
+        return yan;
+
+    }
+    @RequestMapping("code")
+    @ResponseBody
+    public String code(String code,HttpServletRequest request){
+
+       String code1=(String)request.getSession().getAttribute("cc");
+
+       String va=code1.equals(code)?"yes":"no";
+
+       return va;
+
+    }
 
 }

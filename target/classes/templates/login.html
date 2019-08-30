@@ -40,7 +40,20 @@
                     <input autocomplete="off" type="password" class="form-control pword m-b" name="userPwd" placeholder="密码" value=""/>
                     <input name="verifycode" class="form-control pword m-b" type="text" placeholder="验证码" onblur="if(this.value==''){this.value=''}" onclick="if(this.value=='验证码:'){this.value='';}" value="" style="width: 190px;">
           			<img src="images/securitycodeimageaction.action"  id="Verify" style="cursor:hand;height: 30px;float: right;margin-top: -45px;" alt="看不清，换一张"/>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me">记住我
+                        </label>
+                        <br>
+                        <label>
+                            忘记密码
+                        </label>
+                        <label style="float: right">
+                            <a href="viewReg">注册</a>
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-success btn-block" value="登录">登陆</button>
+
                 </form>
             </div>
         </div>

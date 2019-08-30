@@ -30,9 +30,8 @@
             <version>1.0.26</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-email</artifactId>
-            <version>1.4</version>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -76,6 +75,26 @@
             <artifactId>alipay-sdk-java</artifactId>
             <version>3.3.87.ALL</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <!-- <dependency>
+             <groupId>org.apache.poi</groupId>
+             <artifactId>poi</artifactId>
+             <version>3.17</version>
+         </dependency>
+         <dependency>
+             <groupId>org.apache.poi</groupId>
+             <artifactId>poi-ooxml</artifactId>
+             <version>3.17</version>
+         </dependency>
+         <dependency>
+             <groupId>org.apache.poi</groupId>
+             <artifactId>poi-ooxml-schemas</artifactId>
+             <version>3.17</version>
+         </dependency>-->
     </dependencies>
 
     <build>
