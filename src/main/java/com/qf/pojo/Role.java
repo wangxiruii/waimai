@@ -1,7 +1,6 @@
 package com.qf.pojo;
 
 import lombok.Data;
-
 import java.io.Serializable;
 
 /**
@@ -13,4 +12,6 @@ import java.io.Serializable;
 public class Role  implements Serializable {
     private int roleId;
     private String roleName;
+  /*  `roleId` int(11) NOT NULL AUTO_INCREMENT,
+  `roleName` varchar(20) DEFAULT NULL,*/
 }

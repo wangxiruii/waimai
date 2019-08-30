@@ -1,7 +1,5 @@
 package com.qf.pojo;
-
 import lombok.Data;
-
 import java.io.Serializable;
 
 /**
@@ -11,7 +9,5 @@ import java.io.Serializable;
  */
 @Data
 public class Address implements Serializable {
-    private int addressId;
-    private String addressName;
-    //斤斤计较hjkjk
+
 }

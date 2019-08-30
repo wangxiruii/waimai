@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
+        "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.ShopMapper">
+    <resultMap id="shopMap" type="com.qf.pojo.Shop">
+        <id property="shopId" column="shopId"/>
+        <result property="shopName" column="shopName"/>
+        <result property="shopAddress" column="shopAddress"/>
+        <result property="shopTel" column="shopTel"/>
+        <result property="times" column="times"/>
+        <result property="shopImg" column="shopImg"/>
+    </resultMap>
+    <sql id="shop_col">
+        shopId,
+        shopName,
+        shopAddress,
+        shopTel,
+        times,
+        shopImg
+    </sql>
+
+    <!--查询所有的商家-->
+    <select id="loadShopAll" resultType="shop">
+        select
+        <include refid="shop_col"/>
+        from
+        shop
+    </select>
+
+    <!--根据id来查询商家-->
+    <select id="getShopById" parameterType="int" resultType="shop">
+        select
+        <include refid="shop_col"/>
+        from
+        shop
+        <where>
+            shopId=#{shopId}
+        </where>
+    </select>
+</mapper>

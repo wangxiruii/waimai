@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,6 +30,13 @@ public class WaimaiApplicationTests {
         System.out.println(list);
 
 
+    }
+
+
+    @Test
+    public void testemail(){
+        String checkcode = String.valueOf(new Random().nextInt(899999) + 100000);
+        System.out.println(checkcode);
     }
 
 }

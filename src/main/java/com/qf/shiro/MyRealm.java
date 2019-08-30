@@ -31,7 +31,7 @@ public class MyRealm extends AuthorizingRealm {
         String userName=(String) principal;
         if (!StringUtils.isEmpty(userName)){
             Users users=userService.findUserInfo(userName);
-            System.out.println(users);
+            System.out.println(users+"这是用户");
             SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(userName,users.getUserPwd(),getName());
             return authenticationInfo;
         }

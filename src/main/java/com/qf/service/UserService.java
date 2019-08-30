@@ -29,4 +29,9 @@ public interface UserService {
     //根据Id查询用户
     public Users loadById(int userId);
 
+    //
+   // public void sendSimpleMail(String to, String title, String content);
+
+    //前台
+
 }

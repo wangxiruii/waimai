@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -29,14 +28,8 @@ public class UserController {
     RoleService roleService;
     @Autowired
     User_Role_Service user_role_service;
-
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String showLoginForm(){
-            return "login";
-    }
-
     //登陆
-    @RequestMapping(value = "/dengLogin",method = RequestMethod.POST)
+    @RequestMapping("/dengLogin")
     public String login(@RequestParam("userName") String userName,
                         @RequestParam("userPwd") String userPwd){
         System.out.println(userName+"=="+userPwd);
@@ -46,13 +39,12 @@ public class UserController {
             subject.login(token);
             if (subject.isAuthenticated()){
                 System.out.println("登陆成功");
-                return "main";
+                return "redirect:loadgoodsall";
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "opop";
-
     }
     @RequestMapping("/main")
     public String showMain(){
@@ -67,8 +59,6 @@ public class UserController {
     public String save(Users users,String roleName){
         int count=userService.save(users);
         Users u=userService.loadUser(users);
-
-
         int count1= user_role_service.saveUr(users.getUserId(),roleService.loadByRoleName(roleName));
         if (count>1){
             if (count1>1){
@@ -124,4 +114,7 @@ public class UserController {
        return "user";
    }
 
+
+
+   //前台
 }

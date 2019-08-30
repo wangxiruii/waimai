@@ -36,4 +36,6 @@ public interface UserMapper {
     public Users loadById(int userId);
 
 
+    //前台
+
 }
