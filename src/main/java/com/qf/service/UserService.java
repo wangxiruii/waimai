@@ -28,10 +28,17 @@ public interface UserService {
     public int caleMaxPage(int rows);
     //根据Id查询用户
     public Users loadById(int userId);
+<<<<<<< HEAD
 
     //
    // public void sendSimpleMail(String to, String title, String content);
 
     //前台
 
+=======
+    //用户列表查询
+    public List<Users> findAllUser();
+    //
+    public void sendSimpleMail(String to, String title, String content);
+>>>>>>> origin/master
 }

@@ -8,7 +8,11 @@
     private String goodsName;
     private double price;
     private String sale;
+<<<<<<< HEAD
     private String types;
+=======
+    private String typles;
+>>>>>>> origin/master
     private String info;
     -->
     <resultMap id="goodsMap" type="com.qf.pojo.Goods">
@@ -16,18 +20,28 @@
         <result property="goodsName" column="goodsName"/>
         <result property="price" column="price"/>
         <result property="sale" column="sale"/>
+<<<<<<< HEAD
         <result property="types" column="types"/>
         <result property="info" column="info"/>
         <result property="images" column="images"/>
+=======
+        <result property="typles" column="typles"/>
+        <result property="info" column="info"/>
+>>>>>>> origin/master
     </resultMap>
     <sql id="goods_col">
          goodsId,
          goodsName,
          price,
          sale,
+<<<<<<< HEAD
          types,
          info,
          images
+=======
+         typles,
+         info
+>>>>>>> origin/master
     </sql>
     <!--
         //查询所有的物品
@@ -62,7 +76,11 @@
         #{goodsId}
     </select>
     <insert id="saveGoods" parameterType="goods">
+<<<<<<< HEAD
         insert into goods values(default,#{goodsName}, #{price},#{sale},#{types},#{info},#{images})
+=======
+        insert into goods values(default,#{goodsName}, #{price},#{sale},#{typles},#{info})
+>>>>>>> origin/master
     </insert>
     <delete id="deleteGoods" parameterType="list">
         delete from goods where goodsId in
@@ -82,15 +100,23 @@
             <if test="sale!=null">
                 sale=#{sale}
             </if>
+<<<<<<< HEAD
             <if test="types!=null">
                 types=#{types}
+=======
+            <if test="typles!=null">
+                typles=#{typles}
+>>>>>>> origin/master
             </if>
             <if test="info!=null">
                 info=#{info}
             </if>
+<<<<<<< HEAD
             <if test="images!=null">
                 images=#{images}
             </if>
+=======
+>>>>>>> origin/master
         </set>
         where goodsId=#{goodsId}
     </update>
@@ -107,6 +133,7 @@
     <select id="getTotalCount" resultType="int">
         select count(goodsId) from goods
     </select>
+<<<<<<< HEAD
 
 
 
@@ -176,4 +203,6 @@
             goodsId=#{goodsId}
         </where>
     </select>
+=======
+>>>>>>> origin/master
 </mapper>

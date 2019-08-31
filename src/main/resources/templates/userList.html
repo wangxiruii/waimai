@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <head>
 
@@ -15,11 +16,28 @@
     <!-- Data Tables -->
     <link href="css/dataTables.bootstrap.css" rel="stylesheet">
 
+=======
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - 数据表格</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+>>>>>>> origin/master
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
 	<link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 </head>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
@@ -61,13 +79,19 @@
                                 	<th>用户名</th>
                                     <th>昵称</th>
                                     <th>邮箱</th>
+<<<<<<< HEAD
                                     <th>手机号</th>
                                     <th>地址</th>
                                     <th>身份</th>
+=======
+                                    <th>电话</th>
+                                    <th>身份证号</th>
+>>>>>>> origin/master
                                     <th style="text-align: center;">操作</th>
                                 </tr>
                             </thead>
                             <tbody>
+<<<<<<< HEAD
                             	<tr class="gradeX">
                                     <td>1ashdi</td>
                                     <td>sa</td>
@@ -194,6 +218,15 @@
                                     <td>1574865987</td>
                                     <td>陕西西安</td>
                                     <td>会员</td>
+=======
+                            	<tr th:each="u:${usersList}">
+                                    <td><span th:text="${u.userName}"></span></td>
+                                    <td th:text="${u.nickName}"></td>
+                                    <td th:text="${u.email}"></td>
+                                    <td th:text="${u.tel}"></td>
+                                   	<td th:text="${u.num}"></td>
+                                   <!-- <td th:text="${u.num}">会员</td>-->
+>>>>>>> origin/master
                                     <td style="text-align: center;">
                                     	<a class="btn btn-white btn-bitbucket" title="编辑" href="huiyuanxiugai.html">
                            					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>

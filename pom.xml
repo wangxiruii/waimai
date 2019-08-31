@@ -30,8 +30,13 @@
             <version>1.0.26</version>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
+=======
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+>>>>>>> origin/master
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
@@ -71,10 +76,37 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>com.qf</groupId>
             <artifactId>waimai</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+=======
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>3.3.87.ALL</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <!-- <dependency>
+             <groupId>org.apache.poi</groupId>
+             <artifactId>poi</artifactId>
+             <version>3.17</version>
+         </dependency>
+         <dependency>
+             <groupId>org.apache.poi</groupId>
+             <artifactId>poi-ooxml</artifactId>
+             <version>3.17</version>
+         </dependency>
+         <dependency>
+             <groupId>org.apache.poi</groupId>
+             <artifactId>poi-ooxml-schemas</artifactId>
+             <version>3.17</version>
+         </dependency>-->
+>>>>>>> origin/master
     </dependencies>
 
     <build>

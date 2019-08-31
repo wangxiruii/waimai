@@ -15,9 +15,15 @@ public class Users implements Serializable {
         private String userPwd;//用户密码
         private String nickName;//用户昵称
         private String email;//用户邮箱
+<<<<<<< HEAD
         private String tel;//用户邮箱
         private String num;//用户邮箱
         private String realName;//用户邮箱
+=======
+        private String tel;//用户手机
+        private String num;//用户身份证好
+        /*private String realName;//用户邮箱*/
+>>>>>>> origin/master
   /*     `userId` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(200) DEFAULT NULL,
   `userPwd` varchar(200) DEFAULT NULL,
@@ -30,7 +36,11 @@ public class Users implements Serializable {
     }
 
     public Users(int userId, String userName, String userPwd, String nickName,
+<<<<<<< HEAD
                  String email, String tel, String num, String realName) {
+=======
+                 String email, String tel, String num) {
+>>>>>>> origin/master
         this.userId = userId;
         this.userName = userName;
         this.userPwd = userPwd;
@@ -38,6 +48,9 @@ public class Users implements Serializable {
         this.email = email;
         this.tel = tel;
         this.num = num;
+<<<<<<< HEAD
         this.realName = realName;
+=======
+>>>>>>> origin/master
     }
 }

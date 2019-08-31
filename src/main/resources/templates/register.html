@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org">
+=======
+<html>
+>>>>>>> origin/master
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,7 +98,11 @@
                     <h5>用户注册</h5>
                 </div>
                 <div class="ibox-content">
+<<<<<<< HEAD
                     <form class="form-horizontal" id="form1" action="register"  method="post">
+=======
+                    <form class="form-horizontal" id="form1" action="reg"  method="post">
+>>>>>>> origin/master
                         <input type="hidden" name="user.id" value="">
                         <div class="form-group">
                             <label class="col-sm-3 control-label"></label>
@@ -122,12 +130,24 @@
                                 <input type="text" name="nickName"  placeholder=" 请输入昵称"  maxlength="20" class="form-control">
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="form-group">
                             <label class="col-sm-3 control-label"><span style="color:red;" >*</span>邮箱：</label>
                             <div class="col-sm-8" >
                                 <input type="text" name="email"  placeholder=" 请输入邮箱"  maxlength="20" class="form-control">
                             </div>
                         </div>
+=======
+                        <!--<div class="form-group">
+                            <label class="col-sm-3 control-label"><span style="color:red;" >*</span>邮箱：</label>
+                            <div class="col-sm-8" >
+                                <input type="text" name="email"  placeholder=" 请输入邮箱"  maxlength="20" class="form-control">
+                            </div>-->
+
+
+
+
+>>>>>>> origin/master
                         <div class="form-group">
                             <label class="col-sm-3 control-label"><span style="color:red;" >*</span>手机号：</label>
                             <div class="col-sm-8" >
@@ -141,6 +161,24 @@
                                 <input type="text" name="num"  placeholder=" 请输入身份证号 "  maxlength="20" class="form-control">
                             </div>
                         </div>
+<<<<<<< HEAD
+=======
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"><span style="color:red;" >*</span>邮箱：</label>
+                            <div class="col-sm-8" >
+                                <input type="text" name="email" id="email"  placeholder=" 请输入邮箱"  maxlength="20" class="form-control">
+                                <span id="sp" style="color: red"></span>
+                            </div>
+                        </div>
+                        <button type="button" id="next" disabled="disabled"  class=" btn btn-success">发送</button>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"><span style="color:red;" >*</span>验证码：</label>
+                            <div class="col-sm-8" >
+                                <input type="text" name="code" id="code"  placeholder=" 请输入你邮箱中接收到的验证码"  maxlength="20" class="form-control">
+                                <span id="spa" style="color: red"></span>
+                            </div>
+                        </div>
+>>>>>>> origin/master
                         <script type="text/javascript" src="js/address.js"></script>
                         <script type="text/javascript">
 
@@ -195,6 +233,49 @@
             return true;
         });
     });
+<<<<<<< HEAD
+=======
+
+
+
+
+    var el=/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+    $("#email").keyup(function () {
+        if (el.test($(this).val())) {
+            $("#next").attr("disabled",false);
+            $("#sp").text("");
+        }else {
+            $("#next").attr("disabled",true);
+            $("#sp").text("请输入正确的邮箱地址");
+        }
+    });
+    $("#next").click(function () {
+        var mail=$("#email").val();
+        $.post("emil",{"mail":mail},function (data) {
+             var code=$("#code").val();
+            console.log(code);
+        });
+       /* alert(mail);*/
+    });
+    $("#submit").click(function () {
+        var code=$("#code").val();
+
+        $.post("code",{"code":code},function (data) {
+            /*alert(data);*/
+            if (data =="yes") {
+                return;"loginView";
+               /* window.location.href="loginView";*/
+            }else {
+                alert("验证码错误！");
+                 window.location.href="error";
+                return;
+            }
+        });
+
+
+    });
+
+>>>>>>> origin/master
 </script>
 </body>
 </html>

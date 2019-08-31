@@ -2,7 +2,10 @@ package com.qf.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RestController;
+=======
+>>>>>>> origin/master
 
 /**
  * @Auther: 王玺瑞
@@ -11,14 +14,27 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Controller
 public class ViewController {
+<<<<<<< HEAD
     //后台页面的物理跳转
+=======
+>>>>>>> origin/master
     @RequestMapping("/")
     public String showLoginForm(){
         return "login";
     }
+<<<<<<< HEAD
 
     @RequestMapping("viewaddadmin")
     public String viewAddAdmin(){
+=======
+    @RequestMapping("/loginView")
+    public String showLogin(){
+        return "login";
+    }
+
+    @RequestMapping("viewaddmin")
+    public String viewaddmin(){
+>>>>>>> origin/master
         return "addAdmin";
     }
 
@@ -136,11 +152,19 @@ public class ViewController {
     public String viewWelcome(){
         return "welcome";
     }
+<<<<<<< HEAD
+=======
+    @RequestMapping("viewReg")
+    public String viewReg(){
+        return "register";
+    }
+>>>>>>> origin/master
 
     @RequestMapping("viewalipay")
     public String viewAlipay(){
         return "alipay";
     }
+<<<<<<< HEAD
 
 
 
@@ -166,4 +190,6 @@ public class ViewController {
     }
 
 
+=======
+>>>>>>> origin/master
 }

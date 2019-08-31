@@ -2,7 +2,10 @@ package com.qf.mapper;
 
 import com.qf.pojo.Goods;
 import org.apache.ibatis.annotations.Mapper;
+<<<<<<< HEAD
 import org.apache.ibatis.annotations.Param;
+=======
+>>>>>>> origin/master
 
 import java.util.List;
 
@@ -22,7 +25,7 @@ public interface GoodsMapper {
     //删除物品
     public int deleteGoods(List<Integer> ids);
     //修改物品
-    public int updateGoods(int goodsId);
+    public int updateGoods(Goods goods);
     //模糊查询
     public List<Goods> loadName(String goodsName);
     //查询行数

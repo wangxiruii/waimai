@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org">
+=======
+<html>
+>>>>>>> origin/master
 <head>
 <meta charset="utf-8" />
 <title>商品列表</title>
@@ -14,7 +18,11 @@
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
+<<<<<<< HEAD
     <a href="viewregister">注册</a>/<a href="login.html">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+=======
+    <a href="register.html">注册</a>/<a href="login.html">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+>>>>>>> origin/master
    </div>
    <div class="RightNav">
     <a href="user_center.html">用户中心</a> <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="cart.html">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
@@ -28,6 +36,7 @@
    <span>西安市 [ <a href="#">雁塔区</a> ]</span>
   </div>
   <div class="Search"> 
+<<<<<<< HEAD
    <form method="get" id="main_a_serach" >  <!--onsubmit="return check_search(this)"-->
    <div class="Search_nav" id="selectsearch">
    <!-- <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>-->
@@ -36,6 +45,16 @@
    <div class="Search_area"> 
    <input type="text" id="food" value="" name="food" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
    <input type="button" id="eat" class="searchbutton" value="搜 索" />
+=======
+   <form method="get" id="main_a_serach" onsubmit="return check_search(this)">
+   <div class="Search_nav" id="selectsearch">
+    <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
+    <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
+   </div>
+   <div class="Search_area"> 
+   <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
+   <input type="submit" class="searchbutton" value="搜 索" />
+>>>>>>> origin/master
    </div>
    </form>
    <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
@@ -55,12 +74,21 @@
  <section class="fslist_navtree">
   <ul class="select">
 		<li class="select-list">
+<<<<<<< HEAD
 			<dl>
 				<dt>分类：</dt>
 				<dd class="select-all selected"><button type="button" id="all" href="javascript:">全部</button></dd>
 				<dd><button type="button"  id="staple"  class="types" value="主食">主食</button></dd>
                 <dd><button type="button"  id="staple2" class="types" value="小吃">小吃</button></dd>
                 <dd><button type="button"  id="staple3" class="types" value="饮品">饮品</button></dd>
+=======
+			<dl id="select1">
+				<dt>分类：</dt>
+				<dd class="select-all selected"><a href="javascript:">全部</a></dd>
+				<dd><a href="javascript:">主食</a></dd>
+                <dd><a href="javascript:">小吃</a></dd>
+                <dd><a href="javascript:">饮品</a></dd>
+>>>>>>> origin/master
 			</dl>
 		</li>
 		<li class="select-list">
@@ -105,6 +133,7 @@
 	</ul>
  </section>
  <section class="CateL Overflow">
+<<<<<<< HEAD
   <ul class="store-list">
       <li th:each="g:${goodsList}">
       <a th:href="@{loadgoodsbyid(goodsId=${g.goodsId})}" target="_blank" >
@@ -116,6 +145,73 @@
 
       </a>
       </li>
+=======
+  <ul>
+   <li> 
+   <a href="detailsp.html" target="_blank" title="酸辣土豆丝">
+   <img src="upload/05.jpg">
+   <p class="Overflow">酸辣土豆丝</p>
+   <p class="Overflow">好味来快餐连锁店</p>
+   <p class="Overflow">地址：莲湖区土门十字往西100米</p>
+   </a>
+   </li>
+   <li> 
+   <a href="detailsp.html" target="_blank" title="酸辣土豆丝">
+   <img src="upload/06.jpg">
+   <p class="Overflow">酸辣土豆丝</p>
+   <p class="Overflow">好味来快餐连锁店</p>
+   <p class="Overflow">地址：莲湖区土门十字往西100米</p>
+   </a>
+   </li>
+   <li> 
+   <a href="detailsp.html" target="_blank" title="酸辣土豆丝">
+   <img src="upload/04.jpg">
+   <p class="Overflow">酸辣土豆丝</p>
+   <p class="Overflow">好味来快餐连锁店</p>
+   <p class="Overflow">地址：莲湖区土门十字往西100米</p>
+   </a>
+   </li>
+   <li> 
+   <a href="detailsp.html" target="_blank" title="酸辣土豆丝">
+   <img src="upload/02.jpg">
+   <p class="Overflow">酸辣土豆丝</p>
+   <p class="Overflow">好味来快餐连锁店</p>
+   <p class="Overflow">地址：莲湖区土门十字往西100米</p>
+   </a>
+   </li>
+   <li> 
+   <a href="detailsp.html" target="_blank" title="酸辣土豆丝">
+   <img src="upload/02.jpg">
+   <p class="Overflow">酸辣土豆丝</p>
+   <p class="Overflow">好味来快餐连锁店</p>
+   <p class="Overflow">地址：莲湖区土门十字往西100米</p>
+   </a>
+   </li>
+   <li> 
+   <a href="detailsp.html" target="_blank" title="酸辣土豆丝">
+   <img src="upload/01.jpg">
+   <p class="Overflow">酸辣土豆丝</p>
+   <p class="Overflow">好味来快餐连锁店</p>
+   <p class="Overflow">地址：莲湖区土门十字往西100米</p>
+   </a>
+   </li>
+   <li> 
+   <a href="detailsp.html" target="_blank" title="酸辣土豆丝">
+   <img src="upload/03.jpg">
+   <p class="Overflow">酸辣土豆丝</p>
+   <p class="Overflow">好味来快餐连锁店</p>
+   <p class="Overflow">地址：莲湖区土门十字往西100米</p>
+   </a>
+   </li>
+   <li> 
+   <a href="detailsp.html" target="_blank" title="酸辣土豆丝">
+   <img src="upload/02.jpg">
+   <p class="Overflow">酸辣土豆丝</p>
+   <p class="Overflow">好味来快餐连锁店</p>
+   <p class="Overflow">地址：莲湖区土门十字往西100米</p>
+   </a>
+   </li>
+>>>>>>> origin/master
   </ul>
   <div class="TurnPage">
          <a href="#">
@@ -136,10 +232,32 @@
   <div class="Hot_shop">
    <span class="Hshoptile Font14 FontW Block">热门商家</span>
    <ul>
+<<<<<<< HEAD
     <li th:each="s:${shopList}">
      <a th:href="@{getshopbyid(shopId=${s.shopId})}" target="_blank" title="好味来快餐连锁店"><img th:src="${s.shopImg}"></a>
      <p class="Font14 FontW Overflow Lineheight35"><a th:href="@{getshopbyid(shopId=${s.shopId})}" target="_blank" th:text="${s.shopName}"></a></p>
      <p class="Lineheight35 Overflow"><span th:text="${s.shopAddress}"></span></p>
+=======
+    <li>
+     <a href="shop.html" target="_blank" title="好味来快餐连锁店"><img src="upload/cc.jpg"></a>
+     <p class="Font14 FontW Overflow Lineheight35"><a href="shop.html" target="_blank" title="好味来快餐连锁店">好味来快餐连锁店</a></p>
+     <p class="Lineheight35 Overflow"><span title="通过动态控制地址的字符数量...">地址：西安市莲湖区土门新市场斜对面...</span></p>
+    </li>
+    <li>
+     <a href="shop.html" target="_blank" title="好味来快餐连锁店"><img src="upload/dd.jpg"></a>
+     <p class="Font14 FontW Overflow Lineheight35"><a href="shop.html" target="_blank" title="好味来快餐连锁店">好味来快餐连锁店</a></p>
+     <p class="Lineheight35 Overflow"><span title="通过动态控制地址的字符数量...">地址：西安市莲湖区土门新市场斜对面...</span></p>
+    </li>
+    <li>
+     <a href="shop.html" target="_blank" title="好味来快餐连锁店"><img src="upload/ee.jpg"></a>
+     <p class="Font14 FontW Overflow Lineheight35"><a href="shop.html" target="_blank" title="好味来快餐连锁店">好味来快餐连锁店</a></p>
+     <p class="Lineheight35 Overflow"><span title="通过动态控制地址的字符数量...">地址：西安市莲湖区土门新市场斜对面...</span></p>
+    </li>
+    <li>
+     <a href="shop.html" target="_blank" title="好味来快餐连锁店"><img src="upload/cc.jpg"></a>
+     <p class="Font14 FontW Overflow Lineheight35"><a href="shop.html" target="_blank" title="好味来快餐连锁店">好味来快餐连锁店</a></p>
+     <p class="Lineheight35 Overflow"><span title="通过动态控制地址的字符数量...">地址：西安市莲湖区土门新市场斜对面...</span></p>
+>>>>>>> origin/master
     </li>
    </ul>
   </div>
@@ -193,6 +311,7 @@
  </section>
     <div class="copyright">© 版权所有 深渊巨口张大飞 技术支持：<a href="http://bbs.mobiletrain.org/portal.php" title="董存瑞">千峰外卖团队</a></div>
 </footer>
+<<<<<<< HEAD
 <script type="text/javascript">
     $(function () {
         $("#eat").click(function () {
@@ -270,5 +389,7 @@
         });
     });
 </script>
+=======
+>>>>>>> origin/master
 </body>
 </html>

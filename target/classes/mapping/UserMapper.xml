@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<<<<<<< HEAD
     <!DOCTYPE mapper
             PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
             "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
 
+=======
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//en"
+        "http://mybaties.org/dtd/mybatis-3-mapper.dtd">
+>>>>>>> origin/master
 <mapper namespace="com.qf.mapper.UserMapper">
     <resultMap id="userMap" type="com.qf.pojo.Users">
         <id property="userId" column="userId"/>
@@ -31,15 +37,34 @@
         u.userName = #{userName}
     </select>
     <insert id="save" parameterType="users">
+<<<<<<< HEAD
         insert into users values(default,#{userName},#{userPwd},#{nickName},#{email},#{tel},#{num})
+=======
+        insert into users values (default,#{userName},#{userPwd},#{nickName},#{email},#{tel},#{num})
+>>>>>>> origin/master
     </insert>
     <!--查询用户-->
     <select id="loadUser" resultType="users" parameterType="users">
         select * from users where userName=#{userName} and userPwd=#{userPwd}
     </select>
     <!--查询所有-->
+<<<<<<< HEAD
     <select id="loadAll" parameterType="users">
         select * from users
+=======
+    <select id="loadAll" resultType="users">
+        select
+        *
+        from
+        users
+    </select>
+    <!--查询所有用户数据-->
+    <select id="findAllUser" resultType="list">
+        select
+        <include refid="user_col"/>
+        from
+        users
+>>>>>>> origin/master
     </select>
     <delete id="delete" parameterType="list">
         delete from users where userId in
@@ -47,7 +72,11 @@
             #{ids}
         </foreach>
     </delete>
+<<<<<<< HEAD
     <update id="updeteUser" parameterType="map">
+=======
+    <update id="updetaUser" parameterType="map">
+>>>>>>> origin/master
         update users
         <set>
             <!--private String uname;//用户昵称
@@ -62,7 +91,11 @@
                 nickName= #{nickName},
             </if>
             <if test="email!=null">
+<<<<<<< HEAD
                 email= #{eamil}
+=======
+                email= #{email}
+>>>>>>> origin/master
             </if>
             <if test="tel!=null">
                 tel= #{tel}
@@ -70,8 +103,14 @@
             <if test="num!=null">
                 num= #{num}
             </if>
+<<<<<<< HEAD
         </set>
                 where userId=#{userId}
+=======
+
+        </set>
+        where userId=#{userId}
+>>>>>>> origin/master
     </update>
     <select id="loadName" resultType="users" parameterType="string">
         select * from users where userName like concat('%',#{userName},'%')
@@ -79,6 +118,7 @@
     <select id="getTotalCount" resultType="int">
         select count(userId) from users
     </select>
+<<<<<<< HEAD
 
     <!--根据Id查询用户-->
     <select id="loadById" resultType="users" parameterType="int">
@@ -92,4 +132,12 @@
 
 
 
+=======
+    <!--
+        //根据Id查询用户
+    public Users loadById(int userId);-->
+    <select id="loadById" resultType="users" parameterType="int">
+        select * from users where userId=#{userId}
+    </select>
+>>>>>>> origin/master
 </mapper>
